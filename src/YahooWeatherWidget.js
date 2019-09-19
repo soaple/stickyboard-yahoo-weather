@@ -105,64 +105,57 @@ class YahooWeatherWidget extends React.Component {
 
         return (
             <Root>
-                <div className={classes.weather}>
-                    {/* Icon */}
-                    <WeatherIconTextfit
-                        mode='single'
-                        min={14}
-                        max={200}
-                        forceSingleModeWidth={false}>
-                        <p>
-                            <i className={weather !== undefined ? YahooWeatherIconConst[weather.code] : ''}/>
-                        </p>
-                    </WeatherIconTextfit>
+                {/* Icon */}
+                <WeatherIconTextfit
+                    mode='single'
+                    min={14}
+                    max={200}
+                    forceSingleModeWidth={false}>
+                    <p>
+                        <i className={weather !== undefined ? YahooWeatherIconConst[weather.code] : ''}/>
+                    </p>
+                </WeatherIconTextfit>
 
-                    {/* Date */}
-                    <DateTextfit
-                        mode='multi'
-                        min={14}
-                        max={28}>
-                        <p style={{marginBottom: 2}}>
-                            {weather !== undefined ? Moment(weather.date).day() : ''}
-                        </p>
-                        <p>
-                            {weather !== undefined ? Moment(weather.date).format('YYYY/MM/DD') : '( - )'}
-                        </p>
-                    </DateTextfit>
+                {/* Date */}
+                <DateTextfit
+                    mode='multi'
+                    min={14}
+                    max={28}>
+                    <p style={{marginBottom: 2}}>
+                        {weather !== undefined ? Moment(weather.date).day() : ''}
+                    </p>
+                    <p>
+                        {weather !== undefined ? Moment(weather.date).format('YYYY/MM/DD') : '( - )'}
+                    </p>
+                </DateTextfit>
 
-                    {/* Location */}
-                    <LocationTextfit
-                        mode='single'
-                        min={14}
-                        max={56}
-                        forceSingleModeWidth={false}>
-                        <img src={require('../static/image/location_pin.svg')} />
-                        {weather !== undefined ? weather.location : '-'}
-                    </LocationTextfit>
+                {/* Location */}
+                <LocationTextfit
+                    mode='single'
+                    min={14}
+                    max={56}
+                    forceSingleModeWidth={false}>
+                    <img src={require('../static/image/location_pin.svg')} />
+                    {weather !== undefined ? weather.location : '-'}
+                </LocationTextfit>
 
-                    {/* Temperature */}
-                    <TemperatureTextfit
-                        mode='single'
-                        min={28}
-                        max={200}
-                        forceSingleModeWidth={false}>
-                        <p>
-                            {weather !== undefined ? weather.temperature + '°C' : '-°C'}
-                        </p>
-                    </TemperatureTextfit>
+                {/* Temperature */}
+                <TemperatureTextfit
+                    mode='single'
+                    min={28}
+                    max={200}
+                    forceSingleModeWidth={false}>
+                    <p>
+                        {weather !== undefined ? weather.temperature + '°C' : '-°C'}
+                    </p>
+                </TemperatureTextfit>
 
-                    <YahooAttribution href='https://www.yahoo.com/?ilc=401' target='_blank'>
-                        <img src='https://poweredby.yahoo.com/purple.png' width='134' height='29'/>
-                    </YahooAttribution>
-                </div>
+                <YahooAttribution href='https://www.yahoo.com/?ilc=401' target='_blank'>
+                    <img src='https://poweredby.yahoo.com/purple.png' width='134' height='29'/>
+                </YahooAttribution>
             </Root>
         )
     }
 }
-
-YahooWeatherWidget.propTypes = {
-    classes: PropTypes.object.isRequired,
-    theme: PropTypes.object.isRequired,
-};
 
 export default YahooWeatherWidget;

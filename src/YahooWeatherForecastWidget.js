@@ -118,9 +118,4 @@ class YahooWeatherForecastWidget extends React.Component {
     }
 }
 
-YahooWeatherForecastWidget.propTypes = {
-    classes: PropTypes.object.isRequired,
-    theme: PropTypes.object.isRequired,
-};
-
 export default YahooWeatherForecastWidget;
