@@ -23,7 +23,6 @@ const TitleTextfit = styled(Textfit)`
 `;
 
 class YahooWeatherForecastWidget extends React.Component {
-
     constructor (props) {
         super(props)
 
@@ -65,19 +64,17 @@ class YahooWeatherForecastWidget extends React.Component {
     }
 
     render() {
-        const { classes, theme } = this.props;
         const { weatherForecastList } = this.state;
 
         return (
-            <div className={classes.root}>
-                <Textfit
-                    mode="single"
+            <Root>
+                <TitleTextfit
+                    mode='single'
                     min={16}
                     max={28}
-                    forceSingleModeWidth={false}
-                    className={classes.title}>
+                    forceSingleModeWidth={false}>
                     {'Yahoo Weather Forecast'}
-                </Textfit>
+                </TitleTextfit>
 
                 <BarChart
                     data={weatherForecastList}
@@ -97,26 +94,26 @@ class YahooWeatherForecastWidget extends React.Component {
                     //                 tickCount={10}
                     //                 tick={<SimpleDateAxisTick />}/>
                     //             <YAxis/>
-                    //             <CartesianGrid strokeDasharray="3 3"/>
+                    //             <CartesianGrid strokeDasharray='3 3'/>
                     //             <Tooltip
                     //                 labelFormatter={(label) => { return Moment(new Date(label)).format('MM-DD') }}
                     //                 formatter={(value) => { return value }}/>
                     //             <Legend />
                     //             <ReferenceLine y={0} stroke='#000'/>
                     //             <Bar
-                    //                 dataKey="high"
-                    //                 name="High"
+                    //                 dataKey='high'
+                    //                 name='High'
                     //                 unit={'°C'}
                     //                 fill={red['A200']}/>
                     //             <Bar
-                    //                 dataKey="low"
-                    //                 name="Low"
+                    //                 dataKey='low'
+                    //                 name='Low'
                     //                 unit={'°C'}
                     //                 fill={lightBlue['A200']}/>
                     //         </BarChart>}
                     // </ResponsiveContainer>
                 }
-            </div>
+            </Root>
         )
     }
 }
@@ -126,4 +123,4 @@ YahooWeatherForecastWidget.propTypes = {
     theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(YahooWeatherForecastWidget);
+export default YahooWeatherForecastWidget;
