@@ -5,12 +5,14 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Textfit } from 'react-textfit';
 import Moment from 'moment-timezone';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 import ApiManager from './network/ApiManager';
 import StatusCode from './network/StatusCode';
 import YahooWeatherIconConst from './YahooWeatherIconConst';
 
-require('../static/css/weather-icons.min.css');
+// require('../static/css/weather-icons.min.css');
 
 const Root = styled.div`
     height: 100%;
@@ -77,7 +79,8 @@ class YahooWeatherWidget extends React.Component {
     }
 
     componentDidMount () {
-        this.getWeatherData(37.504296, 127.024792);
+        const { latitude, longitude } = this.props;
+        this.getWeatherData(latitude, longitude);
     }
 
     getWeatherData = (latitude, longitude) => {
@@ -135,7 +138,7 @@ class YahooWeatherWidget extends React.Component {
                     min={14}
                     max={56}
                     forceSingleModeWidth={false}>
-                    <img src={require('../static/image/location_pin.svg')} />
+                    <FontAwesomeIcon style={{ marginRight: 8 }} icon={faMapMarkerAlt} />
                     {weather !== undefined ? weather.location : '-'}
                 </LocationTextfit>
 
