@@ -125,7 +125,7 @@ class YahooWeatherWidget extends React.Component {
                     min={14}
                     max={28}>
                     <p style={{marginBottom: 2}}>
-                        {weather !== undefined ? Moment(weather.date).day() : ''}
+                        {weather !== undefined ? Moment(weather.date).format('ddd') : '-'}
                     </p>
                     <p>
                         {weather !== undefined ? Moment(weather.date).format('YYYY/MM/DD') : '( - )'}
@@ -154,7 +154,10 @@ class YahooWeatherWidget extends React.Component {
                 </TemperatureTextfit>
 
                 <YahooAttribution href='https://www.yahoo.com/?ilc=401' target='_blank'>
-                    <img src='https://poweredby.yahoo.com/purple.png' width='134' height='29'/>
+                    <img
+                        src='https://poweredby.yahoo.com/purple.png'
+                        width='134'
+                        height='29' />
                 </YahooAttribution>
             </Root>
         )

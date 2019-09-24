@@ -31,7 +31,7 @@ const ApiManager = {
                     return
                 }
 
-                callback(response.statusCode, JSON.parse(response));
+                callback(200, JSON.parse(response));
             }
         );
     },
